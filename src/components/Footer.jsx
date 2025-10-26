@@ -1,12 +1,19 @@
 import React from 'react';
 import { Github, Mail } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
-    <footer id="contact" className="relative border-t border-white/10 py-12">
+    <footer id="contact" className="relative border-t border-white/10 py-14">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
       <div className="mx-auto max-w-7xl px-4">
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col items-center justify-between gap-6 md:flex-row"
+        >
           <div className="text-center md:text-left">
             <h3 className="text-lg font-semibold">Let’s build something weird.</h3>
             <p className="mt-1 text-white/70">Available for creative web, 3D, and interaction work.</p>
@@ -27,8 +34,8 @@ export default function Footer() {
               <Github size={16} /> GitHub
             </a>
           </div>
-        </div>
-        <p className="mt-6 text-center text-xs text-white/50">© {new Date().getFullYear()} Interactive Maximalist — Built with React + Spline</p>
+        </motion.div>
+        <p className="mt-6 text-center text-xs text-white/50">© {new Date().getFullYear()} Interactive Maximalist — Built with React + Spline + Motion</p>
       </div>
     </footer>
   );
